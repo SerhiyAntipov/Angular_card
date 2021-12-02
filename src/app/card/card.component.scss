@@ -1,0 +1,30 @@
+.card{
+  padding: .5rem 1rem;
+  border: 1px dashed #ccc;
+  margin-bottom: 1rem;
+
+  >*{
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  h2{
+    margin-bottom: .5rem;
+  }
+
+  .text{
+    font-size: 1.2rem;
+
+    &.red{
+      color: red;
+    }
+
+    &.blue{
+      color: blue;
+    }
+
+    &.green{
+      color: green;
+    }
+  }
+}

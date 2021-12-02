@@ -1,0 +1,50 @@
+<div class="card">
+
+  <h2 [ngStyle]="{
+    color: title.length < 10 ? 'black' : 'blue',
+    fontWeight: title.length < 10 ? 'normal' : 'bold'
+  }">{{title}}</h2>
+
+  <p class="text" [ngClass]="{
+    blue: textColor === 'blue',
+    green: textColor === 'green',
+    red: textColor === 'red'
+  }" >{{text}}</p>
+
+  <p class="text"
+    [class.blue]="textColor === 'blue'"
+    [class.green]="textColor === 'green'"
+    [class.red]="textColor === 'red'"
+  >{{text}}</p>
+
+  <div>
+    <button (click)="textColor = 'blue' ">Set blue</button>
+    <button (click)="textColor = 'green' ">Set green</button>
+    <button (click)="textColor = 'red' ">Set red</button>
+  </div>
+
+
+
+  <p> Number: {{number}}</p>
+  <p>Array: {{array}} </p>
+  <pre>{{object | json}}</pre>
+  <p>{{getInfo()}}</p>
+
+  <div>
+<!--    <img src="{{ imgUrl }}" alt="" width="50" >-->
+    <img [src]="imgUrl" alt="" height="50" >
+  </div>
+  <button [disabled]="disableHandler" >My buttom</button>
+
+  <button (click)="changeTitle()" >Change Title</button>
+
+  <button (click)="title = 'New changed Title'  " >New changed Title</button>
+
+  <input type="text" (input)="inputHandler($event)" [value]="title" >
+
+  <input type="text" #myInput (input)="inputHandler2(myInput.value)" [value]="title" >
+
+  <input type="text"  [(ngModel)]="title" (ngModelChange)="inputHandler3()" >
+
+</div>
+
