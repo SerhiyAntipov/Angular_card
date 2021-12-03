@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {newCardInterface} from "../app.component";
 
 @Component({
   selector: 'app-card',
@@ -8,6 +9,10 @@ import {Component, OnInit} from "@angular/core";
 })
 
 export class CardComponent implements OnInit {
+
+  @Input() dataCard: newCardInterface
+  @Input() cardIndex: number
+
   title = 'My Title';
   text = 'My sample text';
   number = 42
@@ -24,6 +29,7 @@ export class CardComponent implements OnInit {
   disableHandler:boolean = false
   textColor: string
 
+  cardDate: Date = new Date()
 
   getInfo(): string{
 
@@ -40,17 +46,17 @@ export class CardComponent implements OnInit {
   }
 
    changeTitle(){
-      this.title = 'Title Changed'
+      this.dataCard.title = 'Title Changed'
    }
 
   inputHandler(event: any){
     console.log(event)
     const value = event.target.value
-    this.title = value
+    this.dataCard.title = value
   }
 
   inputHandler2(value:string){
-    this.title = value
+    this.dataCard.title = value
   }
 
   inputHandler3(){
